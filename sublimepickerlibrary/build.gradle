@@ -24,21 +24,21 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-//    libraryVariants.all { variant ->
-//        variant.outputs.each { output ->
-//            def outputFile = output.outputFile
-//            if (outputFile != null && outputFile.name.endsWith('.aar')) {
-//                def fileName = "${archivesBaseName}-${version}.aar"
-//                output.outputFile = new File(outputFile.parent, fileName)
-//            }
-//        }
-//    }
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                def fileName = "${archivesBaseName}-${android.defaultConfig.versionName}.aar"
+                outputFileName = fileName
+            }
+        }
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.0.0'
-    compile 'com.android.support:support-v4:27.0.0'
+//    compile 'com.android.support:support-v7:27.0.0'
     compile 'com.android.support:gridlayout-v7:27.0.0'
     compile 'com.android.support:support-annotations:27.0.0'
 }
