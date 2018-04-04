@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.0"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.appeaser.sublimepicker"
@@ -20,6 +20,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':sublimepickerlibrary')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':sublimepickerlibrary')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:gridlayout-v7:27.1.0'
+    implementation 'com.android.support:support-annotations:27.1.0'
 }
